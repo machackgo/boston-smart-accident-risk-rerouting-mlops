@@ -44,7 +44,7 @@ def geocode(address: str) -> dict:
         }
 
     Raises:
-        EnvironmentError: If GOOGLE_MAPS_API_KEY is not set in .env.
+        EnvironmentError: If GOOGLE_SERVER_API_KEY is not set in .env.
         requests.ConnectionError: On network errors reaching Google.
         requests.HTTPError: On non-200 HTTP responses from Google.
         ValueError: If Google returns ZERO_RESULTS or a non-OK status.
@@ -59,7 +59,7 @@ def geocode(address: str) -> dict:
         from src.live.weather import get_weather
         weather = get_weather(lat=result["lat"], lng=result["lng"])
     """
-    api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    api_key = os.environ.get("GOOGLE_SERVER_API_KEY")
     if not api_key:
         raise EnvironmentError(
             "GOOGLE_MAPS_API_KEY not found. "

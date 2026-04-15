@@ -174,7 +174,7 @@ def get_route(origin, destination, departure_time=None):
         requests.HTTPError: On non-200 responses from Google.
         ValueError: If the API returns no routes.
     """
-    api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    api_key = os.environ.get("GOOGLE_SERVER_API_KEY")
     if not api_key:
         raise EnvironmentError(
             "GOOGLE_MAPS_API_KEY not found. "
